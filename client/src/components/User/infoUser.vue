@@ -254,7 +254,7 @@ export default {
 
         // Effectuer une requête PUT pour mettre à jour l'utilisateur existant
         const response = await axios.put(
-          `http://${ur}:4000/api/users/${id}`,
+          `http://${this.url}:4000/api/users/${id}`,
           { user: this.user }
         );
 
