@@ -64,7 +64,7 @@ export default {
     chartExist:false,
     componentKey: 0,
     chartType: 'bar', 
-    url:'localhost',
+    url:'13.49.77.13',
   };
 },
 components: {
@@ -97,7 +97,7 @@ mounted() {
       const end = moment(endDate).format("YYYY-MM-DD HH:mm:ss");
       try {
         const response = await axios.get(
-          `http://${url}:4000/api/working_times/${user_id}?start=${start}&end=${end}`
+          `http://${this.url}:4000/api/working_times/${user_id}?start=${start}&end=${end}`
         );
 
         const workByDay = {};
