@@ -1,13 +1,5 @@
 <template>
 <div class="div">
-    <div class="header-title-wrapper">
-        <label for="menu-toggle">
-          <span class="bx bx-menu"></span>
-        </label>
-        <div class="header-title">
-          <h1>Je badge  </h1>
-        </div>
-      </div>
     <div class="horloge-parent">
             <h1 class="horloge">{{ formatTime(currentTime) }}</h1>
      <div class="horloge-btn">
@@ -42,6 +34,7 @@
         user_id: "",
       },
       timerId: null,
+      url:'localhost',
       timerState: localStorage.getItem("timerState") || "stopped",
       currentTime: parseInt(localStorage.getItem("currentTime")) || 0,
     };
@@ -71,7 +64,7 @@
     console.log(data);
 
     const response = await axios.post(
-      `http://localhost:4000/api/clocks/${user_id}`,
+      `http://${url}:4000/api/clocks/${user_id}`,
       { clock: data }
     );
 
@@ -87,7 +80,7 @@
       this.workingTimeData.end = response.data.time;
 
       axios
-        .post(`http://localhost:4000/api/working_times/${user_id}`, {
+        .post(`http://${url}:4000/api/working_times/${user_id}`, {
           working_time: this.workingTimeData,
         })
         .then((response) => {

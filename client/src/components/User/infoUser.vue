@@ -136,6 +136,22 @@
         </div>
       </div>
       <div class="main-content">
+           <header>
+          <div class="header-title-wrapper">
+            <label for="menu-toggle">
+              <span class="bx bx-menu"></span>
+            </label>
+            <div class="header-title">
+              <h1>Hello {{ user.surname }} {{ user.name }} </h1>
+            </div>
+          </div>
+          <div class="header-action">
+            <button class="btn btn-main"  @click="logoutUser()" type="button">
+              <span class='bx bx-log-out'></span>
+              Déconnexion
+            </button>
+          </div> 
+        </header>
         <RouterView />
        
       </div>
@@ -169,6 +185,7 @@ export default {
     return {
       // ...autres variables et méthodes que vous retournez
       showModel,
+      url:'localhost',
     };
   },
   name: "infoUser",
@@ -212,7 +229,7 @@ export default {
       try {
         // Effectuer une requête GET pour obtenir les détails de l'utilisateur
         const response = await axios.get(
-          `http://localhost:4000/api/users/${this.id}`
+          `http://${url}:4000/api/users/${this.id}`
         );
         console.log(
           "Détails de l'utilisateur récupérés avec succès:",
@@ -237,7 +254,7 @@ export default {
 
         // Effectuer une requête PUT pour mettre à jour l'utilisateur existant
         const response = await axios.put(
-          `http://localhost:4000/api/users/${id}`,
+          `http://${ur}:4000/api/users/${id}`,
           { user: this.user }
         );
 
@@ -256,11 +273,11 @@ export default {
       const headers = {
         Authorization: `Bearer ${token}`,
       };
-      await axios.delete("http://localhost:4000/api/auth", {
+      await axios.delete(`http://${url}:4000/api/auth`, {
         headers,
       });
       localStorage.clear();
-      this.$router.push({ name: "home" });
+      this.$router.push({ name: "login" });
     },
 
     async createClock(user_id) {
@@ -271,7 +288,7 @@ export default {
         };
         console.log(data);
         const response = await axios.post(
-          `http://localhost:4000/api/clocks/${user_id}`,
+          `http://${url}:4000/api/clocks/${user_id}`,
           { clock: data }
         );
         console.log("Clock créée avec succès:", response.data);
@@ -286,7 +303,7 @@ export default {
           this.workingTimeData.end = response.data.time;
           console.log(this.workingTimeData);
           axios
-            .post(`http://localhost:4000/api/working_times/${user_id}`, {
+            .post(`http://${url}:4000/api/working_times/${user_id}`, {
               working_time: this.workingTimeData,
             })
             .then((response) => {
@@ -309,7 +326,7 @@ export default {
       try {
         // Effectuer une requête GET pour obtenir les détails de l'utilisateur
         const response = await axios.get(
-          `http://localhost:4000/api/working_timesAll/${id}`
+          `http://${url}:4000/api/working_timesAll/${id}`
         );
         this.allWorkingTimes = response.data;
         console.log(this.allWorkingTimes);
@@ -344,7 +361,7 @@ export default {
       const end = moment(endDate).format("YYYY-MM-DD HH:mm:ss");
       try {
         const response = await axios.get(
-          `http://localhost:4000/api/working_times/${user_id}?start=${start}&end=${end}`
+          `http://${url}:4000/api/working_times/${user_id}?start=${start}&end=${end}`
         );
 
         const workByDay = {};

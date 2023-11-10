@@ -59,6 +59,7 @@ export default {
         email: "",
         password: "",
       },
+      url:'localhost',
     };
   },
   methods: {
@@ -66,7 +67,7 @@ export default {
       try {
         // Effectuer une requête POST pour créer un nouvel utilisateur
         const response = await axios.post(
-          "http://localhost:4000/api/inscription",
+          `http://${url}:4000/api/inscription`,
           this.user
         );
         console.log("Utilisateur créé avec succès:", response);

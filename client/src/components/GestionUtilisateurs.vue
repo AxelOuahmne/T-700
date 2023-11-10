@@ -201,7 +201,8 @@ export default {
       startDay: null,
       chartData: {},
       chartExist: false,
-      date_starte:null
+      date_starte:null,
+      url:'localhost',
     };
   },
   computed: {},
@@ -224,7 +225,7 @@ export default {
       const start = moment(startDate).format('YYYY-MM-DD HH:mm:SS')
       const end = moment(endDate).format('YYYY-MM-DD HH:mm:SS')
       const response = await axios.get(
-        `http://localhost:4000/api/working_times/${user_id}?start=${start}&end=${end}`);
+        `http://${url}:4000/api/working_times/${user_id}?start=${start}&end=${end}`);
 
       const myDates = []
       response.data.forEach((wt) => myDates.push(wt["start"], wt["end"]));
@@ -270,7 +271,7 @@ export default {
     //       time: currentDate,
     //     }
     //     console.log(data);
-    //     const response = await axios.post(`http://localhost:4000/api/clocks/${user_id}`, { clock: data });
+    //     const response = await axios.post(`http://${url}:4000/api/clocks/${user_id}`, { clock: data });
     //     console.log('Clock créée avec succès:', response.data);
     //     if(response.data.status) {
     //       localStorage.setItem("start",JSON.stringify(response.data.time))
@@ -281,7 +282,7 @@ export default {
     //     this.workingTimeData.user_id = user_id
     //     this.workingTimeData.end = response.data.time
     //     console.log(this.workingTimeData)
-    //     axios.post(`http://localhost:4000/api/working_times/${user_id}`, { working_time: this.workingTimeData })
+    //     axios.post(`http://${url}:4000/api/working_times/${user_id}`, { working_time: this.workingTimeData })
     //       .then(response => {
     //         console.log('Working time créé avec succès:', response.data);
     //         localStorage.clear()
@@ -297,7 +298,7 @@ export default {
     async getWorkingTimes(user_id) {
       try {
         // Effectuer une requête GET pour obtenir les détails de l'utilisateur
-        const response = await axios.get(`http://localhost:4000/api/working_timesAll/${user_id}`);
+        const response = await axios.get(`http://${url}:4000/api/working_timesAll/${user_id}`);
         this.allWorkingTimes = response.data;
         console.log(this.allWorkingTimes)
         // Mettez en œuvre la logique nécessaire après avoir obtenu les détails de l'utilisateur ici
@@ -315,7 +316,7 @@ export default {
     async getClock() {
       try {
         // Effectuer une requête GET pour obtenir les détails de l'utilisateur
-        const response = await axios.get(`http://localhost:4000/api/clocks/${this.userId}`);
+        const response = await axios.get(`http://${url}:4000/api/clocks/${this.userId}`);
         this.clocks = response.data;
 
         // Mettez en œuvre la logique nécessaire après avoir obtenu les détails de l'utilisateur ici
@@ -332,7 +333,7 @@ export default {
         };
 
         // Effectuer une requête PUT pour mettre à jour l'utilisateur existant
-        const response = await axios.put(`http://localhost:4000/api/users/${id}`, { user: dataToUpdate });
+        const response = await axios.put(`http://${url}:4000/api/users/${id}`, { user: dataToUpdate });
 
         console.log('Utilisateur mis à jour avec succès :', response.data);
         // Mettez en œuvre la logique nécessaire après la mise à jour de l'utilisateur ici
@@ -345,7 +346,7 @@ export default {
     async getUser() {
       try {
         // Effectuer une requête GET pour obtenir les détails de l'utilisateur
-        const response = await axios.get(`http://localhost:4000/api/users/${this.userId}`);
+        const response = await axios.get(`http://${url}:4000/api/users/${this.userId}`);
         console.log('Détails de l\'utilisateur récupérés avec succès:', response.data);
         // Mettez en œuvre la logique nécessaire après avoir obtenu les détails de l'utilisateur ici
       } catch (error) {
@@ -356,7 +357,7 @@ export default {
     async supprimerUser(id) {
       try {
         if (confirm("Veuillez confirmer votre suppression")) {
-          const response = await axios.delete(`http://localhost:4000/api/users/${id}`);
+          const response = await axios.delete(`http://${url}:4000/api/users/${id}`);
           console.log('Utilisateur supprimé avec succès:', response.data);
 
           this.userExists = false;
@@ -377,7 +378,7 @@ export default {
       const username = this.formData.username;
       try {
         // Effectuez une requête à l'API pour vérifier si l'utilisateur existe
-        const response = await axios.get(`http://localhost:4000/api/users?email=${email}&username=${username}`);
+        const response = await axios.get(`http://${url}:4000/api/users?email=${email}&username=${username}`);
 
         if (response.data) {
           this.userExists = true;

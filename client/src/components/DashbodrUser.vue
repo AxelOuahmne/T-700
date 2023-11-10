@@ -1,13 +1,5 @@
 <template>
   <div class="show">
-    <div class="header-title-wrapper">
-        <label for="menu-toggle">
-          <span class="bx bx-menu"></span>
-        </label>
-        <div class="header-title">
-          <h1>Dashboard</h1>
-        </div>
-      </div>
     <main>
       <section>
         <h3 class="section-head">Mes Heures</h3>
@@ -99,6 +91,7 @@
 <script>
 export default {
   name: "DashbodrUser",
+  url:'localhost',
 };
 </script>
 

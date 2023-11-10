@@ -48,7 +48,9 @@ export default {
         // surname: "",
         email: "",
         password: "",
+        
       },
+      url:'localhost',
     };
   },
   methods: {
@@ -56,7 +58,7 @@ export default {
       try {
         // Effectuer une requête POST pour créer un nouvel utilisateur
         const response = await axios.post(
-          "http://localhost:4000/api/login",
+          `http://${url}:4000/api/login`,
           this.user
         );
         console.log("Utilisateur créé avec succès:", response);
@@ -69,7 +71,7 @@ export default {
             Authorization: `Bearer ${token}`,
           };
           //récupérer les informations de l'utilisateur
-          const response2 = await axios.get("http://localhost:4000/api/auth", {
+          const response2 = await axios.get(`http://${url}:4000/api/auth`, {
             headers,
           });
           //console.log(response2.data.user.id);
