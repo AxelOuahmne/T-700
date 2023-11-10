@@ -44,7 +44,7 @@
 
     <div class="graph-board">
       <div v-if="chartExist">
-        <myChart :chartInput="this.chartData" :key="componentKey" :chartType="chartType" />
+        <myChart :chartInput="this.chartData" :key="componentKey"  />
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@ export default {
     chartExist:false,
     componentKey: 0,
     chartType: 'bar', 
-    url:'13.49.77.13',
+    url:'loclahost',
   };
 },
 components: {
@@ -97,7 +97,7 @@ mounted() {
       const end = moment(endDate).format("YYYY-MM-DD HH:mm:ss");
       try {
         const response = await axios.get(
-          `http://${this.url}:4000/api/working_times/${user_id}?start=${start}&end=${end}`
+          `http://localhost:4000/api/working_times/${user_id}?start=${start}&end=${end}`
         );
 
         const workByDay = {};

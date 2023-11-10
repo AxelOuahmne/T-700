@@ -94,7 +94,7 @@
               <li>
                 <router-link :to="{ name: 'dashboard' }" @click="showMain" :class="{ 'active': $route.name === 'dashboard' }">
                   <span class="bx bx-bar-chart-alt"></span>
-                  <span>Dashbodr</span>
+                  <span>Dashboard</span>
                 </router-link>
               </li>
               <li>

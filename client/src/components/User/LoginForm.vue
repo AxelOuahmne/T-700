@@ -50,7 +50,7 @@ export default {
         password: "",
         
       },
-      url:'13.49.77.13',
+      url:'localhost',
     };
   },
   methods: {
@@ -136,6 +136,7 @@ export default {
 .wrapper .form-box.login {
   left: 0;
   padding: 0px 60px 0px 40px;
+  background: #396aff;
 }
 
 .form-box h2 {
@@ -217,7 +218,7 @@ export default {
   left: 0;
   width: 100%;
   height: 300%;
-  background: linear-gradient(#120023, #3b0052, #120023, #3b0052);
+  background: linear-gradient(#396aff, #3b0052, #120023, #3b0052);
   z-index: -1;
   transition: 0.5s;
 }

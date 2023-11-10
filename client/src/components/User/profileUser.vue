@@ -1,14 +1,28 @@
 <template>
  <div>
-  <div class="header-title-wrapper">
-        <label for="menu-toggle">
-          <span class="bx bx-menu"></span>
-        </label>
-        <div class="header-title">
-          <h1>Profile {{ user.surname }} {{ user.name }} </h1>
+  <div class="info-user-concter">
+        <div class="usernam">
+          <i class='bx bxs-user-circle'></i>
+          <p>{{ user.surname }} {{ user.name }}</p>
+        </div>
+        <div class="usernam">
+          <i class='bx bxl-gmail' ></i>
+          <p>{{ user.email }}</p>
+        </div>
+        <div class="usernam">
+          <i class='bx bx-edit-alt' ></i>
+          <button
+                    type="button"
+                    @click="showModel"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Modifier
+                  </button>
         </div>
       </div>
-    <div class="container mt-5 ">
+    <!-- <div class="container mt-5 ">
       <div class="card">
         <div class="card-header">
           <h2 class="text-center">Informations de l'utilisateur</h2>
@@ -43,15 +57,7 @@
                     Mes Working Times
                   </button>
 
-                  <button
-                    type="button"
-                    @click="showModel"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                  >
-                    Modifier
-                  </button>
+               
                   <button
                     type="button"
                     class="btn btn-danger"
@@ -121,7 +127,7 @@
           </div>
         </div>
       </div> 
-    </div>
+    </div> -->
  </div>
 </template>
 
@@ -130,7 +136,7 @@ import axios from "axios";
 import "boxicons";
 import moment from "moment";
 import "moment-timezone";
-import myChart from "../Charts/Charts.vue";
+// import myChart from "../Charts/Charts.vue";
 import * as bootstrap from "bootstrap";
 import "bootstrap";
 import { onMounted } from "vue";
@@ -174,11 +180,11 @@ export default {
       chartData: {},
       chartExist: false,
       componentKey: 0,
-      url:'13.49.77.13',
+      url:'localhost',
     };
   },
   components: {
-    myChart,
+    // myChart,
   },
   mounted() {
     console.log(this.$route.params.id);
@@ -358,5 +364,42 @@ export default {
 </script>
 
 <style>
+.info-user-concter {
+  width: 350px;
+  height: 300px;
+  background:#fff ;
+  border: 2px solid #eee;
+  border-radius: 7px;
+  box-shadow: var( --shadow);
+  position: relative;
+  left: 20%;
+  top: 100px;
+  padding: 50px;
+  z-index: 1;
+}
+.info-user-concter .usernam  {
+  /* margin: 20px auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #396aff;
+  padding: 20px 0px;
+  box-shadow: rgba(10, 51, 197, 0.5) 20px 20px 35px;
+  z-index: 4;
+}
+.info-user-concter .usernam i {
+  font-size: 50px;
+  color: #396aff;
+  margin-right: 20px;
+  box-shadow: rgba(10, 51, 197, 0.5) 20px 20px 35px;
+  border-radius:50% ;
+}
+.info-user-concter p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #353030;
+  text-transform:capitalize;
+}
 
 </style>

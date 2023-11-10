@@ -91,7 +91,7 @@
 <script>
 export default {
   name: "DashbodrUser",
-  url:'13.49.77.13',
+  url:'localhost',
 };
 </script>
 
