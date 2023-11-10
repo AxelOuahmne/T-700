@@ -9,6 +9,14 @@
       </div>
     </div>
     <div class="form-group">
+      <label for="chartType">Type de graphique :</label>
+      <select v-model="chartType" class="form-control" @change="updateChart">
+        <option value="bar">Bar Chart</option>
+        <option value="line">Line Chart</option>
+        <option value="pie">Pie Chart</option>
+        <!-- Add other chart types as needed -->
+      </select>
+
       <label for="dashStart">Début :</label>
       <input
         type="datetime-local"
@@ -36,7 +44,7 @@
 
     <div class="graph-board">
       <div v-if="chartExist">
-        <myChart :chartInput="this.chartData" :key="componentKey" />
+        <myChart :chartInput="this.chartData" :key="componentKey" :chartType="chartType" />
       </div>
     </div>
   </div>
@@ -55,6 +63,7 @@ export default {
     id: null,
     chartExist:false,
     componentKey: 0,
+    chartType: 'bar', 
   };
 },
 components: {
