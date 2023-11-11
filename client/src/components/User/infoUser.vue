@@ -185,7 +185,7 @@ export default {
     return {
       // ...autres variables et méthodes que vous retournez
       showModel,
-      url:'localhost',
+      url:'http://13.49.77.13',
     };
   },
   name: "infoUser",

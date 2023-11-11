@@ -3,9 +3,10 @@ import Config
 # Configure your database
 config :gotham, Gotham.Repo,
   username: "postgres",
-  password: "Aicha.1995",
-  hostname: "localhost",
+  password: "nathan",
+  hostname: "postgres",
   database: "gotham_dev2",
+  port: "5432",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

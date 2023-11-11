@@ -34,7 +34,7 @@
         user_id: "",
       },
       timerId: null,
-      url:'localhost',
+      url:'http://13.49.77.13',
       timerState: localStorage.getItem("timerState") || "stopped",
       currentTime: parseInt(localStorage.getItem("currentTime")) || 0,
     };
@@ -172,4 +172,4 @@
 }
 
 
-</style> 
+</style>
