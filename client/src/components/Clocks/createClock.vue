@@ -34,7 +34,7 @@
         user_id: "",
       },
       timerId: null,
-      url:'http://13.49.77.13',
+      url:'localhost',
       timerState: localStorage.getItem("timerState") || "stopped",
       currentTime: parseInt(localStorage.getItem("currentTime")) || 0,
     };
@@ -85,7 +85,7 @@
         })
         .then((response) => {
           console.log("Working time créé avec succès:", response.data);
-          localStorage.clear();
+          localStorage.removeItem("start")
           // Mettez à jour timerState pour indiquer que le chronomètre est arrêté
           this.timerState = "stopped";
         })

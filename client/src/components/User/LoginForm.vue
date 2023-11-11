@@ -50,7 +50,7 @@ export default {
         password: "",
         
       },
-      url:'http://13.49.77.13',
+      url:'localhost',
     };
   },
   methods: {

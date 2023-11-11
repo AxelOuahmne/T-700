@@ -59,7 +59,7 @@ export default {
         email: "",
         password: "",
       },
-      url:'http://13.49.77.13',
+      url:'localhost',
     };
   },
   methods: {

@@ -202,7 +202,7 @@ export default {
       chartData: {},
       chartExist: false,
       date_starte:null,
-      url:'http://13.49.77.13',
+      url:'localhost',
     };
   },
   computed: {},
