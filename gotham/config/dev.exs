@@ -4,7 +4,7 @@ import Config
 config :gotham, Gotham.Repo,
   username: "postgres",
   password: "nathan",
-  hostname: "localhost",
+  hostname: "postgres",
   database: "gotham_dev2",
   port: "5432",
   stacktrace: true,
