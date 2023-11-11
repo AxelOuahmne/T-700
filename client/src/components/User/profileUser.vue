@@ -180,7 +180,7 @@ export default {
       chartData: {},
       chartExist: false,
       componentKey: 0,
-      url:'localhost',
+      url:'http://13.49.77.13',
     };
   },
   components: {

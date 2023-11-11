@@ -64,7 +64,7 @@ export default {
     chartExist:false,
     componentKey: 0,
     chartType: 'bar', 
-    url:'loclahost',
+    url:'http://13.49.77.13',
   };
 },
 components: {

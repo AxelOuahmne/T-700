@@ -34,7 +34,7 @@
         user_id: "",
       },
       timerId: null,
-      url:'localhost',
+      url:'http://13.49.77.13',
       timerState: localStorage.getItem("timerState") || "stopped",
       currentTime: parseInt(localStorage.getItem("currentTime")) || 0,
     };
@@ -64,7 +64,7 @@
     console.log(data);
 
     const response = await axios.post(
-      `http://${this.this.url}:4000/api/clocks/${user_id}`,
+      `http://${this.url}:4000/api/clocks/${user_id}`,
       { clock: data }
     );
 
@@ -172,4 +172,4 @@
 }
 
 
-</style> 
+</style>
