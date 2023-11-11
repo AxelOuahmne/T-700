@@ -44,7 +44,7 @@
 
     <div class="graph-board">
       <div v-if="chartExist">
-        <myChart :chartInput="this.chartData" :key="componentKey"  />
+        <myChart :chartInput="this.chartData" :key="componentKey" :chartType="chartType" />
       </div>
     </div>
   </div>

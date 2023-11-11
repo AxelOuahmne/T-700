@@ -64,7 +64,7 @@
     console.log(data);
 
     const response = await axios.post(
-      `http://${this.this.url}:4000/api/clocks/${user_id}`,
+      `http://${this.url}:4000/api/clocks/${user_id}`,
       { clock: data }
     );
 
