@@ -16,20 +16,18 @@ services:
   elixir_server:
     build:
       context: ./gotham
-    # image: ianq/back:latest
     ports:
       - 4000:4000
     depends_on:
       - postgres
-    restart: always
 
   web_client:
     build: ./client
-    # image: ianq/front:latest
+    container_name: web_client
     ports:
-      - 80:80
-    restart: always
-
+      - 8080:8080
+    depends_on:
+      - elixir_server
 
 volumes:
   postgres_data:  # Définition du volume PostgreSQL_data
