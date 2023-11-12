@@ -1,4 +1,4 @@
-<template >
+    <template >
   <div class="parent">
     <div class="wrapper">
       <span class="bg-animate"></span>
@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<script>
+    <script>
 import "boxicons";
 import axios from "axios";
 
@@ -44,67 +44,69 @@ export default {
   data() {
     return {
       user: {
-        // name: "",
-        // surname: "",
         email: "",
         password: "",
-        
       },
-      url:'localhost',
+      url: "localhost",
     };
   },
   methods: {
-  async loginUser() {
-  try {
-    // Effectuer une requête POST pour créer un nouvel utilisateur
-    const response = await axios.post(
-      `http://${this.url}:4000/api/login`,
-      this.user
-    );
+    async loginUser() {
+      try {
+        const response = await axios.post(
+          `http://${this.url}:4000/api/login`,
+          this.user
+        );
 
-    console.log("Utilisateur créé avec succès:", response);
+        console.log("Utilisateur créé avec succès:", response);
 
-    if (response.data.token) {
-      localStorage.setItem("token", JSON.stringify(response.data.token));
+        if (response.data.token) {
+          localStorage.setItem("token", JSON.stringify(response.data.token));
 
-      // Ajouter le token d'authentification à l'en-tête de la requête GET
-      const token = JSON.parse(localStorage.getItem("token"));
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
+          const token = JSON.parse(localStorage.getItem("token"));
+          const headers = {
+            Authorization: `Bearer ${token}`,
+          };
 
-      // Récupérer les informations de l'utilisateur
-      const response2 = await axios.get(`http://${this.url}:4000/api/auth`, {
-        headers,
-      });
+          const response2 = await axios.get(
+            `http://${this.url}:4000/api/auth`,
+            {
+              headers,
+            }
+          );
 
-      const userRole = response2.data.user.roles[0];
-      console.log(userRole)
+          const userRole = response2.data.user.roles[0];
+          localStorage.setItem("userRole", userRole);
 
-      // Assuming that "admin" is the role for the admin user
-      if (userRole === "admin") {
-        // Redirect to the admin dashboard
-        this.$router.push({ name: "admin" });
-      } else {
-        // Redirect to the user-specific page (modify as needed)
-        const userId = response2.data.user.id;
-        if (userId) {
-          this.$router.push({ name: "infoUser", params: { id: userId } });
-        } else {
-          console.error("User ID not available.");
+          // const userId = response2.data.user.id;
+          // this.$router.push({ name: "infoUser", params: { id: userId } });
+          if (userRole === "admin") {
+            console.log("User is an admin");
+
+            this.$router.push({
+              name: "AdminDashboard",
+              params: { id: response2.data.user.id }, // Change 'id' to 'user'
+            });
+          } else {
+            const userId = response2.data.user.id;
+            if (userId) {
+              // Redirect to infoUser page with user id
+              this.$router.push({ name: "infoUser", params: { id: userId } });
+            } else {
+              console.error("User ID not available.");
+            }
+          }
         }
+      } catch (error) {
+        console.error("Erreur lors de la création de l'utilisateur :", error);
       }
-    }
-  } catch (error) {
-    console.error("Erreur lors de la création de l'utilisateur :", error);
-  }
-},
-
+    },
   },
 };
 </script>
 
-<style>
+
+    <style>
 * {
   margin: 0;
   padding: 0;

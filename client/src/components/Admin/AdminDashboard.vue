@@ -147,7 +147,16 @@
               </li>
             </ul>
           </div>
-      
+          <div class="sidebar-card">
+            <div class="side-card-icon">
+              <span class="bx bxs-pie-chart-alt-2"></span>
+            </div>
+            <div>
+              <h4>Make AdSense</h4>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</p>
+            </div>
+            <button class="btn-block">Create Now</button>
+          </div>
         </div>
       </div>
       <div class="main-content">
@@ -202,7 +211,7 @@ export default {
       url: "localhost",
     };
   },
-  name: "infoUser",
+  name: "AdminDashboard",
   data() {
     return {
       id: null,
@@ -260,7 +269,6 @@ export default {
     },
     async editUser(id) {
       try {
-       
         const response = await axios.put(
           `http://${this.url}:4000/api/users/${id}`,
           { user: this.user }
@@ -277,7 +285,7 @@ export default {
       }
     },
     async logoutUser() {
-      console.log()
+      console.log();
       const token = JSON.parse(localStorage.getItem("token"));
       const headers = {
         Authorization: `Bearer ${token}`,
@@ -285,7 +293,13 @@ export default {
       await axios.delete(`http://${this.url}:4000/api/auth`, {
         headers,
       });
-      localStorage.removeItem('token');
+      // <li v-if="user.roles && user.roles.includes('admin')">
+      //           <router-link :to="{ name: 'allUsers' }">
+      //             <span class="bx bxs-user-detail"></span>
+      //             <span>Users</span>
+      //           </router-link>
+      //         </li>
+      localStorage.removeItem("token");
       this.$router.push({ name: "login" });
     },
 
