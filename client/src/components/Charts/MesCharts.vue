@@ -13,7 +13,13 @@
       <select v-model="chartType" class="form-control" @change="updateChart">
         <option value="bar">Bar Chart</option>
         <option value="line">Line Chart</option>
+        <option value="radar">Radar Chart</option>
+        <option value="doughnut">Doughnut Chart</option>
+        <option value="polarArea">Polar Area Chart</option>
+        <option value="bubble">Bubble Chart</option>
+        <option value="scatter">Scatter Chart</option>
         <option value="pie">Pie Chart</option>
+        <option value="polarArea">Polar Area Chart</option>
         <!-- Add other chart types as needed -->
       </select>
 

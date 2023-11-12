@@ -7,12 +7,19 @@ import profileUser  from './components/User/profileUser.vue';
 import createClock from './components/Clocks/createClock.vue'
 import DashbodrUser from'./components/DashbodrUser.vue'
 import MesCharts from './components/Charts/MesCharts.vue'
+import AdminUser from './components/Admin/AdminUser.vue'
 import { createRouter, createWebHistory } from "vue-router"
 const routes = [
     {
         path: '/',
         component: HomePageVue,
         name:'home',
+        props: true,
+    },
+    {
+        path: '/admin',
+        component: AdminUser,
+        name:'admin',
         props: true,
     },
     {
