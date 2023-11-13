@@ -6,6 +6,7 @@ config :gotham, Gotham.Repo,
   password: "Aicha.1995",
   hostname: "localhost",
   database: "gotham_dev2",
+  port: "5432",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
