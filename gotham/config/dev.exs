@@ -3,8 +3,8 @@ import Config
 # Configure your database
 config :gotham, Gotham.Repo,
   username: "postgres",
-  password: "password",
-  hostname: "localhost",
+  password: "nathan",
+  hostname: "postgres",
   database: "gotham_dev2",
   port: "5432",
   stacktrace: true,
