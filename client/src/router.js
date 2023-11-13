@@ -43,15 +43,15 @@ const requireAdmin = (to, from, next) => {
 
 const routes = [
   {
-    path: '/unauthorized',
-    name: 'unauthorized',
-    component: UnauthorizedPage,
-    props: true,
-  },
-  {
     path: '/',
     component: LoginFormVue,
     name: 'login',
+    props: true,
+  },
+  {
+    path: '/unauthorized',
+    name: 'unauthorized',
+    component: UnauthorizedPage,
     props: true,
   },
   {
@@ -61,7 +61,7 @@ const routes = [
     props: true,
   },
   {
-    path: '/user/:id/show/',
+    path: '/user/:id/show',
     name: 'infoUser',
     component: infoUser,
     props: true,

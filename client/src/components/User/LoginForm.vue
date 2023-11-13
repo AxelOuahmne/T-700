@@ -13,7 +13,7 @@
 
           <div class="input-box">
             <input type="password" required v-model="user.password" />
-            <label>passowrd</label>
+            <label>password</label>
             <i class="bx bx-lock-alt"></i>
           </div>
           <button class="btn-lgrg" type="submit">Login</button>

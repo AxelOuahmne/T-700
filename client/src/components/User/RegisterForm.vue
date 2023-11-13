@@ -32,7 +32,7 @@
           <div class="logreg-link">
             <p>
               Already have an account?
-              <RouterLink to="login" class="register-link">Login</RouterLink>
+              <RouterLink to="/" class="register-link">Login</RouterLink>
             </p>
           </div>
         </form>
