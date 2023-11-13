@@ -8,6 +8,7 @@ import EditUser from './components/Admin/EditUser.vue'; // Nouveau composant pou
 import infoUser from './components/User/infoUser.vue';
 import profileUser from './components/User/profileUser.vue';
 import createClock from './components/Clocks/createClock.vue';
+import workingsTime from './components/Clocks/workingsTime.vue';
 import DashbodrUser from './components/DashbodrUser.vue';
 import MesCharts from './components/Charts/MesCharts.vue';
 import { createRouter, createWebHistory } from "vue-router";
@@ -89,6 +90,12 @@ const routes = [
         path: 'clock',
         name: 'clock',
         component: createClock,
+        props: true
+      },
+      {
+        path: 'working_time',
+        name: 'working_time',
+        component: workingsTime,
         props: true
       }
     ]

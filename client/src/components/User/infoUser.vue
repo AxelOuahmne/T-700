@@ -133,11 +133,16 @@
                 </router-link>
               </li>
 
+
               <li>
-                <a href="#">
-                  <span class="bx bx-timer"></span>
-                  <span>Clocks</span>
-                </a>
+                <router-link
+                    :to="{ name: 'working_time' }"
+                    @click="showMain"
+                    :class="{ active: $route.name === 'working_time' }"
+                >
+                  <span class='bx bxs-timer'></span>
+                  <span>Mes heures</span>
+                </router-link>
               </li>
               <li v-if="user.roles && user.roles.includes('admin')">
                 <router-link :to="{ name: 'allUsers' }">

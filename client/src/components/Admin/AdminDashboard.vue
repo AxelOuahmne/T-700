@@ -134,10 +134,14 @@
               </li>
 
               <li>
-                <a href="#">
-                  <span class="bx bx-timer"></span>
-                  <span>Clocks</span>
-                </a>
+                <router-link
+                    :to="{ name: 'working_time' }"
+                    @click="showMain"
+                    :class="{ active: $route.name === 'working_time' }"
+                >
+                  <span class='bx bxs-timer'></span>
+                  <span>Mes heures</span>
+                </router-link>
               </li>
               <li v-if="user.roles && user.roles.includes('admin')">
                 <router-link :to="{ name: 'allUsers' }">
@@ -147,16 +151,7 @@
               </li>
             </ul>
           </div>
-          <div class="sidebar-card">
-            <div class="side-card-icon">
-              <span class="bx bxs-pie-chart-alt-2"></span>
-            </div>
-            <div>
-              <h4>Make AdSense</h4>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit!</p>
-            </div>
-            <button class="btn-block">Create Now</button>
-          </div>
+
         </div>
       </div>
       <div class="main-content">
