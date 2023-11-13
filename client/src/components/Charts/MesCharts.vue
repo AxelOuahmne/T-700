@@ -1,14 +1,6 @@
 <template>
   <div>
-    <div class="header-title-wrapper">
-      <label for="menu-toggle">
-        <span class="bx bx-menu"></span>
-      </label>
-      <div class="header-title">
-        <h1>Charts</h1>
-      </div>
-    </div>
-    <div class="form-group">
+    <div class=" mt-5 w-50 mx-auto">
       <label for="chartType">Type de graphique :</label>
       <select v-model="chartType" class="form-control" @change="updateChart">
         <option value="bar">Bar Chart</option>
@@ -23,7 +15,7 @@
         <!-- Add other chart types as needed -->
       </select>
 
-      <label for="dashStart">Début :</label>
+      <label for="dashStart" class="mt-3">Début :</label>
       <input
         type="datetime-local"
         class="form-control"
@@ -31,7 +23,7 @@
         v-model="dashStart"
         placeholder=" entre la date de début "
       />
-      <label for="dashEnd">Fin :</label>
+      <label for="dashEnd" class="mt-3">Fin :</label>
       <input
         type="datetime-local"
         class="form-control"
@@ -40,7 +32,7 @@
         placeholder=" entre la date de fin "
       />
       <button
-        class="btn btn-secondary"
+        class="btn btn-secondary mt-3"
         type="button"
         @click="showDashboard(this.id, dashStart, dashEnd)"
       >

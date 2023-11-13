@@ -83,15 +83,16 @@ export default {
           if (userRole === "admin") {
             console.log("User is an admin");
 
-            this.$router.push({
+            /*this.$router.push({
               name: "AdminDashboard",
               params: { id: response2.data.user.id }, // Change 'id' to 'user'
-            });
+            })*/
+            this.$router.push({ name: "dashboard", params: { id: response2.data.user.id } });
           } else {
             const userId = response2.data.user.id;
             if (userId) {
               // Redirect to infoUser page with user id
-              this.$router.push({ name: "infoUser", params: { id: userId } });
+              this.$router.push({ name: "dashboard", params: { id: userId } });
             } else {
               console.error("User ID not available.");
             }

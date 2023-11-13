@@ -354,18 +354,6 @@ export default {
       }
     },
 
-    async supprimerUser(id) {
-      try {
-        if (confirm("Veuillez confirmer votre suppression")) {
-          const response = await axios.delete(`http://${this.url}:4000/api/users/${id}`);
-          console.log('Utilisateur supprimé avec succès:', response.data);
-
-          this.userExists = false;
-        }
-      } catch (error) {
-        console.error('Erreur lors de la suppression de l\'utilisateur :', error);
-      }
-    },
     updateFormData(formData) {
       // Mettez à jour formData dans le composant parent avec les données du composant enfant
       this.formData = formData;
@@ -402,9 +390,6 @@ export default {
         this.showErrorMessage = true;
       }
     },
-    created() {
-      //this.workingTimeData = JSON.parse(localStorage.getItem(KeyStorge) || {});
-    }
   }
 };
 
